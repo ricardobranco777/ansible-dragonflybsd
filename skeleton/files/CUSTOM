@@ -1,4 +1,9 @@
-include MINIMAL
-ident CUSTOM
+platform        pc64
+machine         x86_64
+machine_arch    x86_64
+cpu             HAMMER_CPU
+ident           CUSTOM
 
-nooptions PROCFS
+options        INET
+pseudo-device  ether
+pseudo-device  loop

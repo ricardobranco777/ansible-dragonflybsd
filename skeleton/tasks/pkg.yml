@@ -28,9 +28,9 @@
     state: present
   tags: ['pkg']
 
-#- name: Add ports collection
+#- name: Add dports collection
 #  git:
-#    repo: https://git.FreeBSD.org/ports.git
-#    dest: /usr/ports
+#    repo: https://github.com/DragonFlyBSD/DPorts
+#    dest: /usr/dports
 #    depth: 1
 #  tags: ['ports']

@@ -21,4 +21,11 @@ pkg install python311
 
 TODO
 - Configure `qemu-guest-agent`
-- Merge into https://github.com/ricardobranco777/ansible-freebsd
+
+Run:
+
+```
+pkg autoremove
+pkg clean
+pkg audit -F
+```
