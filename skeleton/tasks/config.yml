@@ -1,0 +1,24 @@
+---
+#- name: Mount /proc if not mounted
+#  mount:
+#    path: /proc
+#    src: proc
+#    fstype: procfs
+#    state: mounted
+#  tags: ['mount']
+
+- name: Configure services
+  lineinfile:
+    path: /etc/rc.conf
+    line: "{{ item.line }}"
+  loop:
+    - line: clear_tmp_enable="YES"
+    - line: syslogd_flags="-ss"
+
+- name: Set /etc/hosts.allow
+  copy:
+    src: hosts.allow
+    dest: /etc/hosts.allow
+    owner: root
+    group: wheel
+    mode: 0600

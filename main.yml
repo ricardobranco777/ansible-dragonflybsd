@@ -1,0 +1,6 @@
+---
+- name: Configure DragonflyBSD
+  hosts: all
+
+  roles:
+    - role: skeleton

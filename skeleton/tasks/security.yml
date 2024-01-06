@@ -1,0 +1,70 @@
+---
+# NOTE: We can't use Ansible's sysctl module
+# because DragonflyBSD's sysctl lacks -p option
+- name: Security sysctls
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: "{{ item.line }}"
+    regexp: "{{ item.regexp }}"
+  loop:
+    - line: kern.randompid=1
+      regexp: ^kern\.randompid=
+    - line: kern.coredump=0
+      regexp: ^kern\.coredump=
+    - line: net.inet.ip.random_id=1
+      regexp: ^net\.inet\.ip\.random_id=
+    - line: security.hardlink_check_gid=1
+      regexp: ^security\.hardlink_check_gid=
+    - line: security.hardlink_check_uid=1
+      regexp: ^security\.hardlink_check_uid=
+    - line: security.unprivileged_read_msgbuf=0
+      regexp: ^security\.unprivileged_read_msgbuf=
+    - line: security.ps_showallprocs=0
+      regexp: ^security\.ps_showallprocs=
+    - line: security.ps_showallthreads=0
+      regexp: ^security\.ps_showallthreads=
+    - line: vfs.usermount=1
+      regexp: ^vfs\.usermount=
+  tags: ['security', 'sysctl']
+
+- name: Install security packages
+  pkgng:
+    name:
+      - doas
+      - sudo
+    state: present
+  tags: ['pkg', 'security']
+
+- name: Configure doas
+  copy:
+    src: doas.conf
+    dest: /usr/local/etc/doas.conf
+    owner: root
+    group: wheel
+    mode: 0600
+  tags: ['security']
+
+- name: Create sudo group
+  group:
+    name: sudo
+    system: true
+  tags: ['security']
+
+- name: Allow users in groups sudo & wheel to run sudo
+  copy:
+    src: sudoers.d/custom
+    dest: /usr/local/etc/sudoers.d/custom
+    owner: root
+    group: wheel
+    mode: 0600
+  tags: ['security']
+
+- name: Turn off suid/sgid bits
+  file:
+    path: "{{ item.path }}"
+    mode: "u-s,g-s"
+  loop:
+    - path: /usr/bin/lpq
+    - path: /usr/bin/lpr
+    - path: /usr/bin/lprm
+    - path: /usr/sbin/lpc

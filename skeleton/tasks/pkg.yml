@@ -1,0 +1,36 @@
+---
+- name: Install required packages
+  pkgng:
+    name:
+      - bash
+      - bash-completion
+      - curl
+      - coreutils
+      - diffutils
+      - gawk
+      - git
+      - gmake
+      - gnugrep
+      - gnuls
+      - gnupg
+      - gsed
+      - gtar
+      - mc
+      - nmap
+      - psmisc
+      - python3
+      - python311
+      - rsync
+      - screen
+      - util-linux
+      - vim
+      - wget
+    state: present
+  tags: ['pkg']
+
+#- name: Add ports collection
+#  git:
+#    repo: https://git.FreeBSD.org/ports.git
+#    dest: /usr/ports
+#    depth: 1
+#  tags: ['ports']

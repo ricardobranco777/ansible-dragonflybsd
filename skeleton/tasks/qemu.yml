@@ -1,0 +1,7 @@
+---
+- name: Install QEMU Guest Agent
+  pkgng:
+    name:
+      - qemu-guest-agent
+    state: present
+  tags: ['pkg', 'qemu']
