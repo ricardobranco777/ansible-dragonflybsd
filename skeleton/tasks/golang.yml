@@ -2,20 +2,20 @@
 - name: Install go packages
   pkgng:
     name:
-      - go120
+      - go121
     state: present
   tags: ['pkg', 'golang']
 
 - name: Create go symlink
   file:
-    src: go120
+    src: go121
     dest: /usr/local/bin/go
     state: link
   tags: ['golang']
 
 - name: Create gofmt symlink
   file:
-    src: gofmt120
+    src: gofmt121
     dest: /usr/local/bin/gofmt
     state: link
   tags: ['golang']
