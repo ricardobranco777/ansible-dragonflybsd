@@ -14,20 +14,9 @@
     mode: 0644
   tags: ['src']
 
-- name: Copy /etc/src.conf
-  copy:
-    src: src.conf
-    dest: /etc/src.conf
-    owner: root
-    group: wheel
-    mode: 0644
-  tags: ['src']
-
 - name: Copy CUSTOM kernel configuration
   copy:
     src: CUSTOM
     dest: /usr/src/sys/config/CUSTOM
-#    owner: root
-#    group: wheel
     mode: 0644
   tags: ['src']
