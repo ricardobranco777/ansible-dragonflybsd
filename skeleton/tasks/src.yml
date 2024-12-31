@@ -3,7 +3,6 @@
   shell: git clone --depth 1 --branch DragonFly_RELEASE_6_4 https://github.com/DragonFlyBSD/DragonFlyBSD /usr/src
   args:
     creates: /usr/src
-  tags: ['src']
 
 - name: Copy /etc/make.conf
   copy:
@@ -12,11 +11,9 @@
     owner: root
     group: wheel
     mode: 0644
-  tags: ['src']
 
 - name: Copy CUSTOM kernel configuration
   copy:
     src: CUSTOM
     dest: /usr/src/sys/config/CUSTOM
     mode: 0644
-  tags: ['src']

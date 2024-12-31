@@ -5,7 +5,6 @@
 #    src: proc
 #    fstype: procfs
 #    state: mounted
-#  tags: ['mount']
 
 - name: Configure services
   lineinfile:

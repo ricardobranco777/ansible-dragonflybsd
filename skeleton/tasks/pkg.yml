@@ -28,17 +28,14 @@
       - vim
       - wget
     state: present
-  tags: ['pkg']
 
 - name: Add dports collection
   shell: git clone --depth 1 https://github.com/DragonFlyBSD/DPorts /usr/ports
   args:
     creates: /usr/ports
-  tags: ['ports']
 
 #- name: Add dports collection
 #  git:
 #    repo: https://github.com/DragonFlyBSD/DPorts
 #    dest: /usr/dports
 #    depth: 1
-#  tags: ['ports']

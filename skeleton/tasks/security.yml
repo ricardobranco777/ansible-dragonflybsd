@@ -25,7 +25,6 @@
       regexp: ^security\.ps_showallthreads=
     - line: vfs.usermount=1
       regexp: ^vfs\.usermount=
-  tags: ['security', 'sysctl']
 
 - name: Install security packages
   pkgng:
@@ -33,7 +32,6 @@
       - doas
       - sudo
     state: present
-  tags: ['pkg', 'security']
 
 - name: Configure doas
   copy:
@@ -42,7 +40,6 @@
     owner: root
     group: wheel
     mode: 0600
-  tags: ['security']
 
 - name: Allow users in wheel to run sudo
   copy:
@@ -51,7 +48,6 @@
     owner: root
     group: wheel
     mode: 0600
-  tags: ['security']
 
 - name: Turn off suid/sgid bits
   file:
