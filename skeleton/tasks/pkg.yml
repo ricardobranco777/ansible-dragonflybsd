@@ -22,7 +22,6 @@
       - python3
       - python311
       - rsync
-      - screen
       - tmux
       - util-linux
       - vim
