@@ -30,7 +30,7 @@
   pkgng:
     name:
       - doas
-      - sudo
+      #- sudo
     state: present
 
 - name: Configure doas
