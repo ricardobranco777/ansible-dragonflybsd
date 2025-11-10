@@ -12,6 +12,7 @@
     line: "{{ item.line }}"
   loop:
     - line: clear_tmp_enable="YES"
+    - line: dntpd_enable="YES"
     - line: syslogd_flags="-ss"
 
 - name: Set /etc/hosts.allow
