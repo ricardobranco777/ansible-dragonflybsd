@@ -9,11 +9,11 @@
 - name: Configure services
   lineinfile:
     path: /etc/rc.conf
-    line: "{{ item.line }}"
+    line: "{{ item }}"
   loop:
-    - line: clear_tmp_enable="YES"
-    - line: dntpd_enable="YES"
-    - line: syslogd_flags="-ss"
+    - clear_tmp_enable="YES"
+    - dntpd_enable="YES"
+    - syslogd_flags="-ss"
 
 - name: Set /etc/hosts.allow
   copy:
