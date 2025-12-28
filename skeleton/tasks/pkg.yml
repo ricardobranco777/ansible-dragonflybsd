@@ -13,8 +13,6 @@
       - gmake
       - gnugrep
       - gnuls
-      - gnupg
-      - gperf
       - gsed
       - gtar
       - mc
