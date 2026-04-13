@@ -12,17 +12,13 @@
       - git
       - gmake
       - gnugrep
-      - gnuls
       - gsed
       - gtar
-      - mc
-      - nmap
       - psmisc
       - python3
       - python311
       - rsync
       - tmux
-      - util-linux
       - vim
       - wget
     state: present
